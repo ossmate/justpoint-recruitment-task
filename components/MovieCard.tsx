@@ -5,7 +5,7 @@ import { getTMDbImageUrl } from "@/lib/api/tmdb";
 
 interface MovieCardProps {
   movie: Movie;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export function MovieCard({ movie, onClick }: MovieCardProps) {
