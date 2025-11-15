@@ -5,14 +5,13 @@ import Image from "next/image";
 import { Calendar, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { getTMDbImageUrl } from "@/lib/api/tmdb";
 
 interface MovieModalProps {
   movie: Movie;
   isOpen: boolean;
   onClose: () => void;
 }
-
-const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 
 export function MovieModal({ movie, isOpen, onClose }: MovieModalProps) {
   const router = useRouter();
@@ -47,7 +46,7 @@ export function MovieModal({ movie, isOpen, onClose }: MovieModalProps) {
 
   if (!isOpen) return null;
 
-  const posterUrl = `${TMDB_IMAGE_BASE_URL}/w500${movie.poster_path}`;
+  const posterUrl = getTMDbImageUrl(movie.poster_path) ?? '';
   const releaseYear = movie.release_date
     ? new Date(movie.release_date).getFullYear()
     : null;

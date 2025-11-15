@@ -1,16 +1,15 @@
 import { Movie } from "@/types/movie";
 import Image from "next/image";
 import { Calendar } from "lucide-react";
+import { getTMDbImageUrl } from "@/lib/api/tmdb";
 
 interface MovieCardProps {
   movie: Movie;
   onClick: () => void;
 }
 
-const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
-
 export function MovieCard({ movie, onClick }: MovieCardProps) {
-  const posterUrl = `${TMDB_IMAGE_BASE_URL}/w500${movie.poster_path}`;
+  const posterUrl = getTMDbImageUrl(movie.poster_path) ?? '';
 
   const releaseYear = movie.release_date
     ? new Date(movie.release_date).getFullYear()
