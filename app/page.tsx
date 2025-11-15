@@ -7,7 +7,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <main className="container mx-auto px-4 py-8 max-w-2xl">
-        <h1 className="text-3xl font-bold mb-6">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900">
           Popular Movies
         </h1>
 

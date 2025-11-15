@@ -38,7 +38,7 @@ export default async function MovieDetailsPage({ params }: MovieDetailsPageProps
       <div className="container mx-auto px-4 -mt-40 relative z-10">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-white hover:text-gray-200 mb-6 font-medium"
+          className="inline-flex items-center gap-2 text-white hover:text-gray-200 mb-6 font-semibold uppercase tracking-wide"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Movies
@@ -47,7 +47,7 @@ export default async function MovieDetailsPage({ params }: MovieDetailsPageProps
         <div className="flex flex-col md:flex-row gap-8 bg-white rounded-xl shadow-xl p-6 md:p-8">
           {posterImageUrl && (
             <div className="flex-shrink-0">
-              <div className="relative w-64 h-96 rounded-lg overflow-hidden shadow-lg">
+              <div className="relative w-full md:w-64 h-80 md:h-96 rounded-lg overflow-hidden shadow-lg">
                 <Image
                   src={posterImageUrl ?? ''}
                   alt={movie.title}

@@ -62,7 +62,7 @@ export function MovieModal({ movie, isOpen, onClose }: MovieModalProps) {
       onClick={onClose}
     >
       <div
-        className="relative bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+        className="relative bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -85,7 +85,7 @@ export function MovieModal({ movie, isOpen, onClose }: MovieModalProps) {
             />
           </div>
 
-          <div className="flex-1 p-6 overflow-y-auto">
+          <div className="flex-1 p-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-3 pr-8">
               {movie.title}
             </h2>
