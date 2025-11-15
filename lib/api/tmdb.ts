@@ -24,3 +24,7 @@ async function tmdbFetch<T>(endpoint: string, revalidate = 3600): Promise<T> {
 export async function getPopularMovies(page = 1): Promise<TMDbMoviesResponse> {
   return tmdbFetch<TMDbMoviesResponse>(`/movie/popular?page=${page}&language=en-US`);
 }
+
+export async function getMovieDetails(movieId: number): Promise<Movie> {
+  return tmdbFetch<Movie>(`/movie/${movieId}?language=en-US`);
+}
