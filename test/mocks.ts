@@ -1,0 +1,53 @@
+import { Movie } from '@/types/movie';
+
+export const mockMovie: Movie = {
+  id: 1,
+  title: 'Test Movie',
+  original_title: 'Test Movie',
+  original_language: 'en',
+  overview: 'This is a test movie',
+  poster_path: '/test-poster.jpg',
+  backdrop_path: '/test-backdrop.jpg',
+  release_date: '2024-03-15',
+  vote_average: 8.5,
+  vote_count: 100,
+  popularity: 50,
+  adult: false,
+  video: false,
+  genre_ids: [1, 2, 3],
+};
+
+export const mockMovies: Movie[] = [
+  {
+    id: 1,
+    title: 'Movie One',
+    original_title: 'Movie One',
+    original_language: 'en',
+    overview: 'First test movie',
+    poster_path: '/poster1.jpg',
+    backdrop_path: '/backdrop1.jpg',
+    release_date: '2024-01-15',
+    vote_average: 8.0,
+    vote_count: 100,
+    popularity: 50,
+    adult: false,
+    video: false,
+    genre_ids: [1, 2],
+  },
+  {
+    id: 2,
+    title: 'Movie Two',
+    original_title: 'Movie Two',
+    original_language: 'en',
+    overview: 'Second test movie',
+    poster_path: '/poster2.jpg',
+    backdrop_path: '/backdrop2.jpg',
+    release_date: '2024-02-20',
+    vote_average: 7.5,
+    vote_count: 80,
+    popularity: 40,
+    adult: false,
+    video: false,
+    genre_ids: [3, 4],
+  },
+];
