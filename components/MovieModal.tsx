@@ -52,7 +52,8 @@ export function MovieModal({ movie, isOpen, onClose }: MovieModalProps) {
     : null;
 
   const handleMoreDetails = () => {
-    // TODO: implement navigation to details page
+    router.push(`/movie/${movie.id}`);
+    onClose();
   };
 
   return (

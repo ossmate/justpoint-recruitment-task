@@ -1,4 +1,4 @@
-import { Movie, TMDbMoviesResponse } from '@/types/movie';
+import { Movie, MovieDetails, TMDbMoviesResponse } from '@/types/movie';
 
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
@@ -22,7 +22,9 @@ async function tmdbFetch<T>(endpoint: string, revalidate = 3600): Promise<T> {
   return response.json();
 }
 
-export function getTMDbImageUrl(path: string | null): string | null {
+export function getTMDbImageUrl(
+  path: string | null,
+): string | null {
   if (!path) return null;
   return `${TMDB_IMAGE_BASE_URL}/w500${path}`;
 }
@@ -31,6 +33,6 @@ export async function getPopularMovies(page = 1): Promise<TMDbMoviesResponse> {
   return tmdbFetch<TMDbMoviesResponse>(`/movie/popular?page=${page}&language=en-US`);
 }
 
-export async function getMovieDetails(movieId: number): Promise<Movie> {
-  return tmdbFetch<Movie>(`/movie/${movieId}?language=en-US`);
+export async function getMovieDetails(movieId: number): Promise<MovieDetails> {
+  return tmdbFetch<MovieDetails>(`/movie/${movieId}?language=en-US`);
 }
