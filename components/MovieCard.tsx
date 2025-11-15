@@ -4,11 +4,12 @@ import { Calendar } from "lucide-react";
 
 interface MovieCardProps {
   movie: Movie;
+  onClick: () => void;
 }
 
 const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 
-export function MovieCard({ movie }: MovieCardProps) {
+export function MovieCard({ movie, onClick }: MovieCardProps) {
   const posterUrl = `${TMDB_IMAGE_BASE_URL}/w500${movie.poster_path}`;
 
   const releaseYear = movie.release_date
@@ -16,7 +17,10 @@ export function MovieCard({ movie }: MovieCardProps) {
     : null;
 
   return (
-    <div className="flex overflow-hidden bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-all duration-200 cursor-pointer">
+    <div
+      className="flex overflow-hidden bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-all duration-200 cursor-pointer"
+      onClick={onClick}
+    >
       <div className="flex-shrink-0 relative w-20 h-32 bg-gray-100">
         <Image
           src={posterUrl}
