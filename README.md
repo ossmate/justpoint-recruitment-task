@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A small Next.js 16 project built for the Justpoint recruitment task. It fetches data from the **TMDb** (The Movie Database) public API and lets users:
 
-## Getting Started
+* browse the list of **popular movies**,
+* open a **modal** with a short overview,
+* navigate to a **detail page** with extended information.
 
-First, run the development server:
+Responsive design is implemented with **Tailwind CSS**.
+
+---
+
+## ⚡ Tech Stack
+
+| Purpose | Library / Tool |
+|---------|----------------|
+| Framework | **Next.js 16** (App Router, Server Components) |
+| UI Library | **React 19** with **TypeScript 5** |
+| Styling | **Tailwind CSS 4** |
+| Icons | **Lucide-react** |
+| Testing | **Vitest** + **@testing-library/react / jest-dom** |
+| Linting | **ESLint 9** |
+| Package Manager | **pnpm** |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone & Install
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/<your-org>/justpoint-recruitment-task.git
+cd justpoint-recruitment-task
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Obtain a TMDb API key
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Sign up at https://www.themoviedb.org/
+2. Go to **Settings → API** and generate an **API Key (v3 auth)**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Configure environment variables
 
-## Learn More
+Create a file called `.env.local` in the project root:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+TMDB_API_KEY=<your_api_key_here>
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Run the dev server
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm dev
+```
 
-## Deploy on Vercel
+Visit http://localhost:3000.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🏗️ Project Structure
+
+```
+├── app/                 # Next.js server & client components
+│   ├── layout.tsx
+│   ├── page.tsx         # Home / Popular movies (server component)
+│   └── movie/[id]/      # Dynamic movie detail route
+│       └── page.tsx
+├── components/          # Re-usable UI components (MovieCard, MovieModal, …)
+├── lib/
+│   └── api/tmdb.ts      # TMDb API helpers
+├── types/               # TypeScript types shared across the app
+├── test/                # Utility mocks for unit tests
+└── ...                  # Config & meta files
+```
+
+---
+
+## 📜 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start the dev server |
+| `pnpm build` | Build production bundle |
+| `pnpm start` | Run the production server |
+| `pnpm lint` | Lint the codebase with ESLint |
+| `pnpm test` | Run unit tests with Vitest |
+---
+
+## ✨ Features Implemented
+
+* Popular movies list with infinite scroll-ready component layout.
+* Detail modal (client side) + dedicated server-rendered detail page.
+* Responsive layouts for mobile, tablet and desktop breakpoints.
+* Image optimisation via `next/image`.
+* Three unit tests covering list, card and date helpers.
+
+---
